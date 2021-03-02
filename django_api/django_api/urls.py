@@ -15,13 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from api.resources import NoteResource, TokenResource
+from api.resources import TokenResource
 
-note_resource = NoteResource()
 token_resource = TokenResource()
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(note_resource.urls)),
-    path('api/', include(token_resource.urls)),
+    path('api/', include(token_resource.urls)),  # home_url/api/token/{token_id}
 ]
